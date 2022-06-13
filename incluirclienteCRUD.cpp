@@ -16,13 +16,14 @@ char ValidaSexo();
 char Validaresp();
 // =================================================================
 int main() {
- FILE *Arquivo;
- char erro = 'N';
+	setlocale(LC_ALL, "Portuguese");
+ 	FILE *Arquivo;
+ 	char erro = 'N';
 
 	Arquivo = fopen ("CLIENTE.txt","r+"); 
      if (Arquivo == NULL) {
 	 erro='S'; 
-     printf ("Erro abertura do Arquivo : CLIENTE.txt. Tecle algo !\n"); 
+     printf ("ERRO Arquivo não encontrado : CLIENTE.txt. Tecle algo!\n"); 
      getch();
  } if (erro == 'N') {
  Entrada(Arquivo);
@@ -36,7 +37,7 @@ void Entrada (FILE * Arquivo) {
  char vresp;
  do {
  fflush(stdin);    
- printf("\n Digite o Codigo [Zero encerra] : " );
+ printf("\n Digite o Código [Zero encerra] : " );
  scanf("%d", &novo.codigo);
  fflush(stdin); 
  if (novo.codigo != 0) {
@@ -59,7 +60,7 @@ void Entrada (FILE * Arquivo) {
  getch();
  }
  else {
- printf (" \n Problemas : Gravacao nao efetuada !!!" );
+ printf (" \n ERRO: Gravação não efetuada!" );
  getch();
  }
  }
@@ -80,7 +81,7 @@ char ValidaSexo() {
 char Validaresp() {
  char vresp;
  do {
- printf(" \n Confirma Inclusao [S ou N] ? " );
+ printf(" \n Você tem certeza que deseja prosseguir? [S ou N] ? " );
  vresp = getche();
  } while (vresp != 'S' && vresp != 'N');
  return vresp;
